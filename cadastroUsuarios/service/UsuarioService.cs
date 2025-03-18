@@ -1,47 +1,71 @@
 using cadastroUsuarios.Models;
 using cadastroUsuarios.Repository;
+using System.Text.RegularExpressions;
+
 
 namespace cadastroUsuarios.Service
 {
     public class UsuarioService
     {
-        private UsuarioRepository usuarioRepository;
+        /**
+            Adiciona um usuário
+            @param usuario Usuário a ser adicionado
+         */
+        private UsuarioRepository usuarioRepository = new UsuarioRepository();
 
-        public UsuarioService(UsuarioRepository usuarioRepository)
+        public void AdicionarUsuario(Usuario usuario)
         {
-            this.usuarioRepository = usuarioRepository;
+            validaUsuario(usuario);
+            usuarioRepository.adicionarUsuario(usuario);
         }
 
-        public void AddUser(Usuario usuario)
-        {
-            if (usuario.Nome == null || usuario.Email == null || usuario.Idade.Equals(null))
+        /**
+            Retorna a lista de usuários
+            @return Lista de usuários
+         */
+        public List<Usuario> ListarUsuarios()
+        {   
+            if (usuarioRepository.listarUsuarios().Count == 0)
             {
-                throw new System.InvalidOperationException("Nenhum campo pode ser vazio");
+                throw new Exception("Nenhum usuário cadastrado");
             }
 
-            usuarioRepository.AddUser(usuario);
+            return usuarioRepository.listarUsuarios();
         }
 
-        public List<Usuario> GetAll()
+        /**
+            Retorna um usuário pelo nome
+            @param nome Nome do usuário
+            @return Usuário
+         */
+        public Usuario BuscarUsuarioPorNome(string nome)
         {
-            if (usuarioRepository.GetAll().Count == 0)
-            {
-                throw new System.InvalidOperationException("Nenhum usuário cadastrado");
-            }
-            return usuarioRepository.GetAll();
+            return usuarioRepository.buscarUsuarioPorNome(nome);
         }
 
-        public Usuario GetByName(string nome)
-        { 
-            var usuario = usuarioRepository.GetAll().FirstOrDefault(u => u.Nome == nome);
-            
-            if(usuario == null || usuario.Nome != nome)
+        /**
+            Valida um usuário
+            @param usuario Usuário a ser validado
+         */
+        private void validaUsuario(Usuario usuario)
+        {
+            if (string.IsNullOrWhiteSpace(usuario.GetNome()))
             {
-                throw new Exception($"Usuário {nome} não encontrado");
+                throw new ArgumentException("O nome é obrigatório");
             }
-
-            return usuarioRepository.GetByName(nome);
-            
+            if (string.IsNullOrWhiteSpace(usuario.GetEmail()))
+            {
+                throw new ArgumentException("O email é obrigatório");
+            }
+            if (usuario.GetIdade() < 1 || usuario.GetIdade() > 120)
+            {
+                throw new ArgumentException("Idade deve ser entre 1 e 100");
+            }
+            if (!Regex.IsMatch(usuario.GetEmail(), @"^[^@\s]+@[^@\s]+\.[^@\s]+$"))
+            {
+                throw new ArgumentException("Email inválido");
+            }
         }
+        
     }
 }

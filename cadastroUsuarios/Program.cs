@@ -1,5 +1,4 @@
 ﻿using cadastroUsuarios.Models;
-using cadastroUsuarios.Repository;
 using cadastroUsuarios.Service;
 
 namespace cadastroUsuarios
@@ -8,67 +7,110 @@ namespace cadastroUsuarios
     {
         static void Main(string[] args)
         {
-            var repository = new UsuarioRepository();
-            var service = new UsuarioService(repository);
+            /**
+                * Instancia um novo usuário            
+             */
+            var usuarioService = new UsuarioService();
 
-            int selected = -1;
+            int opcao = -1;
 
-            while (selected != 0)
-            {   System.Console.WriteLine();
-                System.Console.WriteLine("Digite a opção desejada");
-                System.Console.WriteLine("Digite 1 para adicionar um usuário");
-                System.Console.WriteLine("Digite 2 para listar todos os usuários");
-                System.Console.WriteLine("Digite 3 para buscar um usuário por nome");
-                System.Console.WriteLine("Digite 0 para sair");
+            while (opcao != 0)
+            {   
+                // Pula uma linha
+                Console.WriteLine();
 
-                selected = int.Parse(System.Console.ReadLine());
-                System.Console.WriteLine();
+                Console.WriteLine("=== Cadastro de usuarios ===");
+                Console.WriteLine("1. Adicionar usuário");
+                Console.WriteLine("2. Listar usuários");
+                Console.WriteLine("3. Buscar usuário por nome");
+                Console.WriteLine("0. Sair");
+                Console.Write("Escolha uma opção: ");
                 
-                switch (selected)
+                // Pula uma linha
+                Console.WriteLine();
+
+                /**
+                    trata exceções de conversão de tipos de dados
+                 */
+                try
+                {
+                     opcao = int.Parse(Console.ReadLine());
+                }
+                catch (FormatException)
+                {
+                    Console.WriteLine("Por favor, insira um valor numérico válido.");
+                }
+                // catch (Exception ex)
+                // {
+                //     Console.WriteLine($"Erro: {ex.Message}");
+                // }
+
+                // Pula uma linha
+                Console.WriteLine();
+                
+                /**
+                    * Verifica a opção escolhida pelo usuário
+                 */
+                switch (opcao)
                 {
                     case 1:
-                        System.Console.WriteLine("Digite o nome do usuário");
-                        var nome = System.Console.ReadLine();
-
-                        System.Console.WriteLine("Digite o email do usuário");
-                        var email = System.Console.ReadLine();
-
-                        System.Console.WriteLine("Digite a idade do usuário");
-                        var idade = int.Parse(System.Console.ReadLine());
-
-                        var usuario = new Usuario
                         {
-                            Nome = nome,
-                            Email = email,
-                            Idade = idade
-                        };
+                            Console.Write("Nome: ");
+                            string nome = Console.ReadLine();
+                            Console.Write("Email: ");
+                            string email = Console.ReadLine();
+                            Console.Write("Idade: ");
+                            int idade = int.Parse(Console.ReadLine());
 
-                        service.AddUser(usuario);
-                        break;
-                    case 2:
-                        var usuarios = service.GetAll();
-                        foreach (var u in usuarios)
-                        {
-                            System.Console.WriteLine($"Nome: {u.Nome}, Email: {u.Email}, Idade: {u.Idade}");
+                            var usuario = new Usuario(nome, email, idade);
+                            usuarioService.AdicionarUsuario(usuario);
+                            break;
                         }
-                        break;
+                    case 2:
+                        {
+                            var usuarios = usuarioService.ListarUsuarios();
+                            foreach (var usuario in usuarios)
+                            {
+                                Console.WriteLine("Nome: " + usuario.GetNome());
+                                Console.WriteLine("Email: " + usuario.GetEmail());
+                                Console.WriteLine("Idade: " + usuario.GetIdade());
+                                Console.WriteLine("===================================");
+                            }
+                            break;
+                        }
                     case 3:
-                        System.Console.WriteLine("Digite o nome do usuário");
-                        var nomeBusca = System.Console.ReadLine();
-
-                        var usuarioBusca = service.GetByName(nomeBusca);
-                        System.Console.WriteLine($"Nome: {usuarioBusca.Nome}, Email: {usuarioBusca.Email}, Idade: {usuarioBusca.Idade}");
-                        break;
+                        {
+                            Console.Write("Nome: ");
+                            string nome = Console.ReadLine();
+                            var usuario = usuarioService.BuscarUsuarioPorNome(nome);
+                            if (usuario != null)
+                            {
+                                Console.WriteLine("Nome: " + usuario.GetNome());
+                                Console.WriteLine("Email: " + usuario.GetEmail());
+                                Console.WriteLine("Idade: " + usuario.GetIdade());
+                            }
+                            else
+                            {
+                                Console.WriteLine("Usuário não encontrado!");
+                            }
+                            break;
+                        }
                     case 0:
-                        System.Console.WriteLine("Saindo...");
-                        break;
+                        {
+                            Console.WriteLine("Programa finalizado!");
+                            break;
+                        }
                     default:
-                        System.Console.WriteLine("Opção inválida");
-                        break;
+                        {
+                            Console.WriteLine("Opção inválida!");
+                            break;
+
+                        }
                 }
-               
+                
+                // Pula uma linha
+                Console.WriteLine();
             }
-            
         }
     }
 }

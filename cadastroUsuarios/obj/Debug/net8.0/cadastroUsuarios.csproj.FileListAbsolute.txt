@@ -12,3 +12,18 @@ C:\Users\angel\OneDrive\Área de Trabalho\teste_autoMind\cadastroUsuarios\obj\De
 C:\Users\angel\OneDrive\Área de Trabalho\teste_autoMind\cadastroUsuarios\obj\Debug\net8.0\cadastroUsuarios.pdb
 C:\Users\angel\OneDrive\Área de Trabalho\teste_autoMind\cadastroUsuarios\obj\Debug\net8.0\cadastroUsuarios.genruntimeconfig.cache
 C:\Users\angel\OneDrive\Área de Trabalho\teste_autoMind\cadastroUsuarios\obj\Debug\net8.0\ref\cadastroUsuarios.dll
+C:\Users\JoãoFontes\Music\testeAutomind\automind\cadastroUsuarios\bin\Debug\net8.0\cadastroUsuarios.exe
+C:\Users\JoãoFontes\Music\testeAutomind\automind\cadastroUsuarios\bin\Debug\net8.0\cadastroUsuarios.deps.json
+C:\Users\JoãoFontes\Music\testeAutomind\automind\cadastroUsuarios\bin\Debug\net8.0\cadastroUsuarios.runtimeconfig.json
+C:\Users\JoãoFontes\Music\testeAutomind\automind\cadastroUsuarios\bin\Debug\net8.0\cadastroUsuarios.dll
+C:\Users\JoãoFontes\Music\testeAutomind\automind\cadastroUsuarios\bin\Debug\net8.0\cadastroUsuarios.pdb
+C:\Users\JoãoFontes\Music\testeAutomind\automind\cadastroUsuarios\obj\Debug\net8.0\cadastroUsuarios.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\JoãoFontes\Music\testeAutomind\automind\cadastroUsuarios\obj\Debug\net8.0\cadastroUsuarios.AssemblyInfoInputs.cache
+C:\Users\JoãoFontes\Music\testeAutomind\automind\cadastroUsuarios\obj\Debug\net8.0\cadastroUsuarios.AssemblyInfo.cs
+C:\Users\JoãoFontes\Music\testeAutomind\automind\cadastroUsuarios\obj\Debug\net8.0\cadastroUsuarios.csproj.CoreCompileInputs.cache
+C:\Users\JoãoFontes\Music\testeAutomind\automind\cadastroUsuarios\obj\Debug\net8.0\cadastroUsuarios.sourcelink.json
+C:\Users\JoãoFontes\Music\testeAutomind\automind\cadastroUsuarios\obj\Debug\net8.0\cadastroUsuarios.dll
+C:\Users\JoãoFontes\Music\testeAutomind\automind\cadastroUsuarios\obj\Debug\net8.0\refint\cadastroUsuarios.dll
+C:\Users\JoãoFontes\Music\testeAutomind\automind\cadastroUsuarios\obj\Debug\net8.0\cadastroUsuarios.pdb
+C:\Users\JoãoFontes\Music\testeAutomind\automind\cadastroUsuarios\obj\Debug\net8.0\cadastroUsuarios.genruntimeconfig.cache
+C:\Users\JoãoFontes\Music\testeAutomind\automind\cadastroUsuarios\obj\Debug\net8.0\ref\cadastroUsuarios.dll

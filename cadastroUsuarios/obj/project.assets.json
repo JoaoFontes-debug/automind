@@ -8,19 +8,19 @@
     "net8.0": []
   },
   "packageFolders": {
-    "C:\\Users\\angel\\.nuget\\packages\\": {}
+    "C:\\Users\\JoãoFontes\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\angel\\OneDrive\\Área de Trabalho\\teste_autoMind\\cadastroUsuarios\\cadastroUsuarios.csproj",
+      "projectUniqueName": "C:\\Users\\JoãoFontes\\Music\\testeAutomind\\automind\\cadastroUsuarios\\cadastroUsuarios.csproj",
       "projectName": "cadastroUsuarios",
-      "projectPath": "C:\\Users\\angel\\OneDrive\\Área de Trabalho\\teste_autoMind\\cadastroUsuarios\\cadastroUsuarios.csproj",
-      "packagesPath": "C:\\Users\\angel\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\angel\\OneDrive\\Área de Trabalho\\teste_autoMind\\cadastroUsuarios\\obj\\",
+      "projectPath": "C:\\Users\\JoãoFontes\\Music\\testeAutomind\\automind\\cadastroUsuarios\\cadastroUsuarios.csproj",
+      "packagesPath": "C:\\Users\\JoãoFontes\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\JoãoFontes\\Music\\testeAutomind\\automind\\cadastroUsuarios\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\angel\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\JoãoFontes\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net8.0"
